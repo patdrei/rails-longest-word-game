@@ -1,0 +1,14 @@
+<%= start = Time.now %>
+<ul>
+<% @array.each do|letter| %>
+<li style="display:inline;"><%= letter %></li>
+<% end %>
+</ul>
+
+<form action='/score' method="get">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag 'array', @array %>
+  <%= hidden_field_tag 'time', start %>
+  <input type="text" name="word" placeholder="Your Word">
+  <input type="submit">
+</form>
